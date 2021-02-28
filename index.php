@@ -47,6 +47,42 @@
 
      ?>
 
+     <h1>PHP SNACKS 2</h1>
+
+     <!-- PHP Snack 2:
+    Passare come parametri GET name, mail e age e verificare (cercando i metodi che non
+    conosciamo nella documentazione) che:
+    1. name sia più lungo di 3 caratteri,
+    2. mail contenga un punto e una chiocciola
+    3. age sia un numero.
+    Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
+
+    <?php
+
+    // variabili GET che permettono, tramite relativo url, di compilare i campi (localhost/*/index.php/?name=michele&mail=mickcofano@gmail.com&age=28) (nel mio caso)
+    $name = $_GET ['name'];
+    $mail = $_GET ['mail'];
+    $age = $_GET ['age'];
+
+    // trasformazione dell'età in numero intero
+    $intAge = (int)$age;
+
+    // metodo if che permette di far si che siano soddisfatte le richieste
+    if ( strlen($name) > 3
+        && strpos($mail, '.') !== false
+        && strpos($mail, '@') !== false
+        && is_int($intAge)
+    ) {
+      echo 'Accesso riuscito'; // se vengono soddisfatte le richieste, allora
+    } else {
+      echo 'Accesso negato'; // altrimenti, se non vengono soddisfatte..
+    }
+
+
+     ?>
+
+     <!-- end snacks -->
+
 
   </body>
 </html>
